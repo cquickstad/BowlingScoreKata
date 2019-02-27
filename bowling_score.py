@@ -5,5 +5,9 @@
 class BowlingScoreCalculator:
     @staticmethod
     def score(frames):
-        return 0
+        n = 0
+        for frame in frames:
+            for pins in frame:
+                n += pins
+        return n
 
