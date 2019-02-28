@@ -47,6 +47,14 @@ class MyTestCase(unittest.TestCase):
         frames = ((10,), (10,), (10,), (10,), (10,), (10,), (10,), (10,), (10,), (10, 10, 10))
         self.assertEqual(self.cut.score_game(frames), 300)
 
+    def test_all_frames_nine_and_miss(self):
+        frames = ((9,), (9,), (9,), (9,), (9,), (9,), (9,), (9,), (9,), (9,))
+        self.assertEqual(self.cut.score_game(frames), 90)
+
+    def test_all_spares_with_final_throw(self):
+        frames = ((5, 5), (5, 5), (5, 5), (5, 5), (5, 5), (5, 5), (5, 5), (5, 5), (5, 5), (5, 5, 5))
+        self.assertEqual(self.cut.score_game(frames), 150)
+
 
 if __name__ == '__main__':
     unittest.main()
