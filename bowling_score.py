@@ -13,13 +13,22 @@ class BowlingScoreCalculator:
         score = 0
         for self._frame_idx, self._frame in enumerate(frames):
             score += sum(self._frame)
-            score += self._get_next_throw() if self._is_spare() else 0
+            if self._is_strike():
+                score += self._get_next_two_throws()
+            elif self._is_spare():
+                score += self._get_next_throw()
         return score
 
     def _get_next_throw(self):
         if self._frame_idx + 1 < len(self._frames):
             return self._frames[self._frame_idx+1][0]
         return 0
+
+    def _get_next_two_throws(self):
+        return sum(self._frames[self._frame_idx+1])
+
+    def _is_strike(self):
+        return self._frame[0] == 10
 
     def _is_spare(self):
         return sum(self._frame) == 10

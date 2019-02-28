@@ -35,6 +35,10 @@ class MyTestCase(unittest.TestCase):
         frames = ((0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 10, 0))
         self.assertEqual(self.cut.score_game(frames), 10)
 
+    def test_strike_adds_next_two_throws(self):
+        frames = ((0, 0), (0, 0), (10, 0), (3, 6), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0))
+        self.assertEqual(self.cut.score_game(frames), 28)
+
 
 if __name__ == '__main__':
     unittest.main()
