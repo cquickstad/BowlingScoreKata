@@ -28,7 +28,9 @@ class BowlingScoreCalculator:
         return sum(self._frames[self._frame_idx+1])
 
     def _is_strike(self):
-        return self._frame[0] == 10
+        if len(self._frame) > 0:
+            return self._frame[0] == 10
+        return False
 
     def _is_spare(self):
         return sum(self._frame) == 10
