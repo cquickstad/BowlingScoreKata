@@ -21,6 +21,10 @@ class MyTestCase(unittest.TestCase):
         frames = ((1, 2), (3, 4), (1, 0), (0, 1), (2, 2), (3, 2), (7, 0), (0, 4), (1, 8), (2, 3))
         self.assertEqual(self.cut.score_game(frames), 46)
 
+    def test_spare_adds_next_throw(self):
+        frames = ((0, 0), (0, 0), (0, 0), (0, 0), (6, 4), (3, 0), (0, 0), (0, 0), (0, 0), (0, 0))
+        self.assertEqual(self.cut.score_game(frames), 16)
+
 
 if __name__ == '__main__':
     unittest.main()

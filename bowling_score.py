@@ -8,7 +8,9 @@ class BowlingScoreCalculator:
 
     def score_game(self, frames):
         score = 0
-        for self._frame in frames:
+        for i, self._frame in enumerate(frames):
             score += sum(self._frame)
+            if sum(self._frame) == 10:  # spare
+                score += frames[i+1][0]
         return score
 
