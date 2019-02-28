@@ -3,10 +3,12 @@
 
 
 class BowlingScoreCalculator:
-    @staticmethod
-    def score_game(frames):
-        n = 0
-        for frame in frames:
-            n += sum(frame)
-        return n
+    def __init__(self):
+        self._frame = None
+
+    def score_game(self, frames):
+        score = 0
+        for self._frame in frames:
+            score += sum(self._frame)
+        return score
 
