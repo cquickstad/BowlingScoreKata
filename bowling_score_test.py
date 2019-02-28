@@ -25,6 +25,13 @@ class MyTestCase(unittest.TestCase):
         frames = ((0, 0), (0, 0), (0, 0), (0, 0), (6, 4), (3, 0), (0, 0), (0, 0), (0, 0), (0, 0))
         self.assertEqual(self.cut.score_game(frames), 16)
 
+    def test_spare_on_last_frame(self):
+        frames = ((0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (1, 9, 7))
+        self.assertEqual(self.cut.score_game(frames), 17)
+
+        frames = ((0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 10, 10))
+        self.assertEqual(self.cut.score_game(frames), 20)
+
 
 if __name__ == '__main__':
     unittest.main()
