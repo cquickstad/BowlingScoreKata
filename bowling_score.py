@@ -17,7 +17,9 @@ class BowlingScoreCalculator:
         return score
 
     def _get_next_throw(self):
-        return self._frames[self._frame_idx+1][0]
+        if self._frame_idx + 1 < len(self._frames):
+            return self._frames[self._frame_idx+1][0]
+        return 0
 
     def _is_spare(self):
         return sum(self._frame) == 10

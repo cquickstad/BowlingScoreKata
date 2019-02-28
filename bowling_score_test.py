@@ -32,6 +32,9 @@ class MyTestCase(unittest.TestCase):
         frames = ((0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 10, 10))
         self.assertEqual(self.cut.score_game(frames), 20)
 
+        frames = ((0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 0), (0, 10, 0))
+        self.assertEqual(self.cut.score_game(frames), 10)
+
 
 if __name__ == '__main__':
     unittest.main()
