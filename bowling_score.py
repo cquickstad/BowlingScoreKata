@@ -23,7 +23,11 @@ class BowlingScoreCalculator:
         return 0 if self._is_last_frame() else self._frames[self._frame_idx+1][0]
 
     def _get_next_two_throws(self):
-        return 0 if self._is_last_frame() else sum(self._frames[self._frame_idx+1][0:2])
+        if self._is_last_frame():
+            return 0
+        elif len(self._frames[self._frame_idx+1]) < 2:
+            return self._frames[self._frame_idx+1][0] + self._frames[self._frame_idx+2][0]
+        return sum(self._frames[self._frame_idx+1][0:2])
 
     def _is_last_frame(self):
         return self._frame_idx + 1 >= len(self._frames)

@@ -43,6 +43,10 @@ class MyTestCase(unittest.TestCase):
         frames = ((10,), (10, 10, 10))
         self.assertEqual(self.cut.score_game(frames), 60)
 
+    def test_perfect_game(self):
+        frames = ((10,), (10,), (10,), (10,), (10,), (10,), (10,), (10,), (10,), (10, 10, 10))
+        self.assertEqual(self.cut.score_game(frames), 300)
+
 
 if __name__ == '__main__':
     unittest.main()
